@@ -1,0 +1,10 @@
+<h3>Vehicle: {{ vehicle.plate }}</h3>
+
+<h4>Job / Sticky Notes</h4>
+<ul>
+{% for j in jobs %}
+  <li>{{ j.description }} — {{ j.total }}</li>
+{% endfor %}
+</ul>
+
+<a href="/jobs/add/">Add Job</a>

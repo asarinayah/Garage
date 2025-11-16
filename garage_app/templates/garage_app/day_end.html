@@ -1,0 +1,11 @@
+<h3>Day End Report — {{ date }}</h3>
+
+Total: {{ total }} <br>
+Paid: {{ paid }} <br>
+Unpaid: {{ unpaid }} <br>
+
+<ul>
+{% for i in invoices %}
+  <li>Invoice {{ i.invoice_number }} — {{ i.total_amount }}</li>
+{% endfor %}
+</ul>

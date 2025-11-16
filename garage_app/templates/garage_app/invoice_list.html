@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invoice List</title>
+    <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #555;
+            text-align: left;
+        }
+        th {
+            background-color: #ddd;
+        }
+        a.button {
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        a.button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Invoices</h2>
+
+<a href="/invoices/add/" class="button">+ Add New Invoice</a>
+
+<table>
+    <tr>
+        <th>Invoice No.</th>
+        <th>Vehicle</th>
+        <th>Date</th>
+        <th>Total Amount</th>
+        <th>Paid?</th>
+        <th>Action</th>
+    </tr>
+
+    {% for invoice in invoices %}
+    <tr>
+        <td>{{ invoice.invoice_number }}</td>
+        <td>{{ invoice.vehicle.plate }}</td>
+        <td>{{ invoice.issued_at|date:"Y-m-d H:i" }}</td>
+        <td>{{ invoice.total_amount }}</td>
+        <td>{% if invoice.paid %}Yes{% else %}No{% endif %}</td>
+        <td>
+            <a href="/invoices/{{ invoice.id }}/">View</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="6" style="text-align:center;">No invoices found</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

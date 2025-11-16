@@ -1,0 +1,7 @@
+<h3>Vehicles</h3>
+<a href="/vehicles/add/">+ Add Vehicle</a>
+<ul>
+{% for v in vehicles %}
+  <li><a href="/vehicles/{{ v.id }}/">{{ v.plate }} - {{ v.owner_name }}</a></li>
+{% endfor %}
+</ul>

@@ -1,0 +1,9 @@
+<h3>Invoice {{ invoice.invoice_number }}</h3>
+
+<ul>
+{% for job in invoice.job_items.all %}
+  <li>{{ job.description }} — {{ job.total }}</li>
+{% endfor %}
+</ul>
+
+<p>Total: {{ invoice.total_amount }}</p>
